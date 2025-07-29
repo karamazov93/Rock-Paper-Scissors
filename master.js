@@ -1,4 +1,4 @@
-function getComputerChoice(){
+function getComputerChoice(){   //function de computadora, comando aleatorio
    let a= "piedra"
    let b= "papel"
    let c= "tijera"
@@ -22,52 +22,73 @@ if (i > 1){
 }  
 }
 
-function getHumanChoice() {
+/* ----------------------------------------------------- */
+function getHumanChoice() {                // function de human-choice
    
   let eleccion= prompt("piedra, papel ó tijera?")
   console.log(eleccion);
   return eleccion       
 }
 
-let humanScore=0
-let computerScore=0
 
+/*--------------------------------------------------------------------*/
 
-function playRound(HumanChoice, computerChoice){
+function playRound(HumanChoice, computerChoice){   //el juego en si mismo
 if (HumanChoice === "papel" && computerChoice === "piedra" ) {
   humanScore ++
-  return console.log("ganaste:", humanScore )} 
+   console.log("ganaste:", humanScore )
+return   humanScore 
+ } 
 
 if (HumanChoice === "piedra" && computerChoice === "tijera" ) {
-  humanScore ++
-  return console.log("ganaste:", humanScore )} 
+ humanScore ++
+  console.log("ganaste:", humanScore )
+  return humanScore 
+
+  } 
 
 if (HumanChoice === "tijera" && computerChoice === "papel" ) {
   humanScore ++
-  return console.log("ganaste:", humanScore )} 
+  console.log("ganaste:", humanScore )
+ return  humanScore 
+} 
 
 
 if (HumanChoice=== computerChoice) {
-  humanScore ++,
-  computerScore ++
+
   console.log("empate, puntos para ámbos",
     "human: ", humanScore,
-    "machine:", humanScore)}  
-
-
+    "machine:", computerScore) 
+   humanScore ++, computerScore ++
+return humanScore, computerScore
+  }
 else {
-  computerScore ++
   console.log("ganó machine")
-  console.log("puntos:", computerScore);
-  
-  
+  console.log("puntos:", computerScore); 
+ computerScore ++
+ return { human: humanScore, computer: computerScore };
+} }
+
+ /* ---------------------------------- */
+let humanScore=0;
+let computerScore=0;
+
+const HumanChoice= getHumanChoice()//llamada a la funcion de la eleccion del jugador
+const computerChoice=getComputerChoice()//llamada a la funcion de la eleccion de la pc
+
+let resultado= playRound(HumanChoice, computerChoice) //resultado del ganador de una sola  partida
+
+
+function playGame(){
+
+for (let resultado = 0; resultado < 5; resultado++) {
+  const human = getHumanChoice();
+  const computer = getComputerChoice();
+  playRound(human, computer) 
 }
 
 
+}
+playGame()
 
 
- }
-const HumanChoice= getHumanChoice()
-const computerChoice=getComputerChoice()
-
-playRound(HumanChoice, computerChoice)
