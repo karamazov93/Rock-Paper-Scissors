@@ -96,7 +96,7 @@ if (computerScore === 5) {
   resultadosDiv.textContent=`el ganador es La máquina: ${computerScore} `
 }
 if (humanScore=== 5) {
-  resultadosDiv.textContent=`el ganador es Human ${humanScore}`
+  resultadosDiv.textContent=`el ganador es Human: ${humanScore}`
 }
 
 
